@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="./style.css">
+    <title>iherb</title>
+</head>
+
+<body>
+    <section class="content">
+        <div class="container">
+            <div class="row cardRow">
+                <div class="col-12 col-sm-4 box">
+                    <div class="card ">
+                        <img class="card-img-top" data-aos="zoom-in" src="./logo.png" alt="">
+                        <div class="card-body">
+                            <h4 class="card-title" data-aos="fade-down"
+                            data-aos-easing="linear"
+                            data-aos-duration="1500">
+                                كود خصم ايهيرب
+                            </h4>
+                            <p class="card-text" data-aos="fade-down"
+                            data-aos-easing="linear"
+                            data-aos-duration="1500">
+                                كوبون كود خصم ايهيرب يخصم لك حتى <span class="red"> 65% </span> على جميع مشترياتك
+                                انسخ كود الخصم واستخدمه قبل إتمام عملية الشراء من الموقع.
+                            </p>
+                            <div class="row coupon" data-aos="fade-up"
+                            data-aos-anchor-placement="center-bottom">
+                                <h2 class="mail-text bgRed " tooltip="Click to Copy" tooltip-position="bottom"
+                            data-toggle="modal" data-target="#exampleModal">
+                                DPK9498
+                            </h2>
+                            </div>
+
+                            <!-- <button class="copyButton">Copy</button> -->
+                            <div class="base coupon" data-aos="fade-up"
+                            data-aos-anchor-placement="center-bottom">
+                                <button class="btn btn-primary copyButton" data-toggle="modal"
+                                    data-target="#exampleModal">اضغط هنا لنسخ الكوبون</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+        <h4>
+            تم نسخ كوبون الخصم بنجاح. هل تريد الذهاب للموقع؟.
+
+        </h4>  
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">لا, الغاء</button>
+          <a href="https://sa.iherb.com/" class="btn btn-primary">الذهاب للموقع </a>
+        </div>
+      </div>
+    </div>
+  </div>
+        </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+  AOS.init();
+
+
+        const copyMailId = document.querySelectorAll('.mail-text');
+
+        copyMailId.forEach(copyText => {
+            copyText.addEventListener('click', () => {
+                const selection = window.getSelection();
+                const range = document.createRange();
+                range.selectNodeContents(copyText);
+                selection.removeAllRanges();
+                selection.addRange(range);
+
+                try {
+                    document.execCommand('copy');
+                    selection.removeAllRanges();
+
+                    const mailId = copyText.textContent;
+                    copyText.textContent = 'Copied!';
+                    copyText.classList.add('success');
+
+                    setTimeout(() => {
+                        copyText.textContent = mailId;
+                        copyText.classList.remove('success');
+                    }, 1000);
+                } catch (e) {
+                    copyText.textContent = 'Couldn\'t copy, hit Ctrl+C!';
+                    copyText.classList.add('error');
+
+                    setTimeout(() => {
+                        errorMsg.classList.remove('show');
+                    }, 1200);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
