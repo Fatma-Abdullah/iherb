@@ -38,7 +38,8 @@ img {
     font-size: 2.5rem;
     color: #fff;
     margin: 20px auto;
-    background: #d9153d;
+    /* background: #d9153d; */
+    background-image: linear-gradient(to bottom,#f38a00 0,#ef6c00 100%);
     display: initial;
     padding: 3px 4px;
 }
